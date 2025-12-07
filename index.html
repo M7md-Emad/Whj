@@ -930,7 +930,7 @@
     "region": "CRO",
     "phone": "502653162",
     "sector": "Health",
-    "team": "Health-2"
+    "team": "Health-3"
   },
   {
     "name": "معاذ السليمان",
@@ -1611,7 +1611,8 @@
     "sector": "Technology and Digital",
     "team": "Tech-2"
   }
-]
+];
+
         // --- Data Processing Component ---
         const processTeams = (data) => {
             const teams = {};
@@ -1744,15 +1745,15 @@
             const [activeTab, setActiveTab] = useState('riyadh-roster'); // Default to Riyadh Roster
 
             // --- Schedule Data ---
-            const dammamData = { teams: 2, system: "مباراة فاصلة", matches: [{ id: 1, team1: "الفريق E-1", team2: "الفريق E-2", time: "7:00 – 7:40 مساءً", status: "qualifier" }] };
+            const dammamData = { teams: 2, system: "مباراة فاصلة", matches: [{ id: 1, team1: "الفريق E-1", team2: "الفريق E-2", time: "الثلاثاء 9/12 | 7:00 – 7:40 م", status: "qualifier" }] };
             const jeddahData = { teams: 4, system: "خروج مغلوب", matches: [
-                { id: 1, title: "نصف النهائي 1", team1: "W-1", team2: "W-2", time: "7:00 – 7:40 م" },
-                { id: 2, title: "نصف النهائي 2", team1: "W-3", team2: "W-4", time: "7:50 – 8:30 م" },
-                { id: 3, title: "النهائي", team1: "فائز 1", team2: "فائز 2", time: "10:00 – 10:40 م" },
+                { id: 1, title: "نصف النهائي 1", team1: "W-1", team2: "W-2", time: "الثلاثاء 9/12 | 7:00 – 7:40 م" },
+                { id: 2, title: "نصف النهائي 2", team1: "W-3", team2: "W-4", time: "الثلاثاء 9/12 | 7:50 – 8:30 م" },
+                { id: 3, title: "النهائي", team1: "فائز 1", team2: "فائز 2", time: "الأربعاء 10/12 | 10:00 – 10:40 م" },
             ]};
             const riyadhSchedule = [
                 { 
-                    day: "اليوم 1 – دور الـ 16", 
+                    day: "الأحد 14/12 – دور الـ 16", 
                     matches: [
                         { time: "7:00 – 7:40", pitchA: "Health-1 vs Health-2", pitchB: "Health-3 vs Health-4" }, 
                         { time: "7:50 – 8:30", pitchA: "Health-5 vs Tech-1", pitchB: "Tech-2 vs General" }, 
@@ -1761,21 +1762,21 @@
                     ] 
                 },
                 { 
-                    day: "اليوم 2 – ربع النهائي", 
+                    day: "الاثنين 15/12 – ربع النهائي", 
                     matches: [
                         { time: "7:00 – 7:40", pitchA: "ربع نهائي 1", pitchB: "ربع نهائي 2" }, 
                         { time: "7:50 – 8:30", pitchA: "ربع نهائي 3", pitchB: "ربع نهائي 4" }
                     ] 
                 },
                 {
-                    day: "اليوم 3 – نصف النهائي",
+                    day: "الثلاثاء 16/12 – نصف النهائي",
                     matches: [
                         { time: "7:00 – 7:40", pitchA: "نصف النهائي 1", pitchB: "—" },
                         { time: "8:00 – 8:40", pitchA: "نصف النهائي 2", pitchB: "—" }
                     ]
                 },
                 {
-                    day: "اليوم 4 – النهائي",
+                    day: "الأربعاء 17/12 – النهائي",
                     matches: [
                         { time: "7:00 – 7:40", pitchA: "النهائي الكبير 🏆", pitchB: "—" }
                     ]
@@ -1898,6 +1899,28 @@
 
                         {activeTab === 'riyadh-schedule' && (
                             <div className="max-w-5xl mx-auto space-y-6">
+                                {/* New Location Block */}
+                                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-center justify-between">
+                                    <div className="flex items-center gap-3">
+                                        <div className="bg-blue-600 text-white p-2 rounded-full">
+                                            <MapPin size={24} />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-bold text-blue-900">موقع مباريات الرياض</h3>
+                                            <p className="text-sm text-blue-700">جميع المباريات تقام في هذا الموقع</p>
+                                        </div>
+                                    </div>
+                                    <a 
+                                        href="https://maps.app.goo.gl/ecqLTe7nvDhzFDcQ8?g_st=iw" 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold transition-colors flex items-center gap-2"
+                                    >
+                                        <span>الذهاب للموقع</span>
+                                        <MapPin size={18} />
+                                    </a>
+                                </div>
+
                                 {riyadhSchedule.map((day, idx) => (
                                     <div key={idx} className="bg-white rounded-lg shadow border overflow-hidden">
                                         <div className="bg-blue-600 text-white p-3 font-bold flex justify-between">
@@ -1928,9 +1951,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
