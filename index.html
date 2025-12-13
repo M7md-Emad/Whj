@@ -1766,12 +1766,57 @@
             const [activeTab, setActiveTab] = useState('riyadh-roster'); // Default to Riyadh Roster
 
             // --- Schedule Data ---
-            const dammamData = { teams: 2, system: "مباراة فاصلة", matches: [{ id: 1, team1: "الفريق E-1", team2: "الفريق E-2", time: "الأربعاء 10/12 | 7:30 – 8:10 م", status: "qualifier" }] };
-            const jeddahData = { teams: 4, system: "خروج مغلوب", matches: [
-                { id: 1, title: "نصف النهائي 1", team1: "W-1", team2: "W-2", time: "الثلاثاء 9/12 | 7:00 – 7:40 م" },
-                { id: 2, title: "نصف النهائي 2", team1: "W-3", team2: "W-4", time: "الثلاثاء 9/12 | 7:50 – 8:30 م" },
-                { id: 3, title: "النهائي", team1: "فائز 1", team2: "فائز 2", time: "الأربعاء 10/12 | 7:00 – 7:40 م" },
-            ]};
+const dammamData = { 
+    teams: 2, 
+    system: "مباراة فاصلة", 
+    matches: [
+        { 
+            id: 1, 
+            team1: "الفريق E-1", 
+            team2: "الفريق E-2", 
+            time: "الأربعاء 10/12 | 7:30 – 8:10 م", 
+            status: "finished",      // اختياري
+            score1: 3,               // نتيجة الفريق الأول
+            score2: 1                // نتيجة الفريق الثاني
+        }
+    ] 
+};
+
+const jeddahData = { 
+    teams: 4, 
+    system: "خروج مغلوب", 
+    matches: [
+        { 
+            id: 1, 
+            title: "نصف النهائي 1", 
+            team1: "W-1", 
+            team2: "W-2", 
+            time: "الثلاثاء 9/12 | 7:00 – 7:40 م",
+            status: "finished",
+            score1: 2,   // عدّل الأرقام حسب نتيجتك
+            score2: 0
+        },
+        { 
+            id: 2, 
+            title: "نصف النهائي 2", 
+            team1: "W-3", 
+            team2: "W-4", 
+            time: "الثلاثاء 9/12 | 7:50 – 8:30 م",
+            status: "finished",
+            score1: 1,
+            score2: 1
+        },
+        { 
+            id: 3, 
+            title: "النهائي", 
+            team1: "فائز 1", 
+            team2: "فائز 2", 
+            time: "الأربعاء 10/12 | 7:00 – 7:40 م" 
+            // مافيه نتيجة لسه، نتركه بدون score1/score2
+        },
+    ]
+};
+
             const riyadhSchedule = [
                 { 
                     day: "الأحد 14/12 – دور الـ 16", 
@@ -1972,6 +2017,7 @@
     </script>
 </body>
 </html>
+
 
 
 
