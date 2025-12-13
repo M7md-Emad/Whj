@@ -1738,22 +1738,47 @@
             );
         };
 
-        const MatchCard = ({ match, isFinal = false }) => (
-            <div className={`relative flex flex-col items-center justify-center p-4 bg-white border rounded-lg shadow-sm transition-shadow hover:shadow-md ${isFinal ? 'border-yellow-400 bg-yellow-50' : 'border-gray-200'}`}>
-                <div className="text-xs font-bold text-gray-400 mb-2">{match.title || "المباراة"}</div>
-                <div className="flex items-center justify-between w-full gap-4">
-                    <div className="font-bold text-gray-800 text-center w-1/3 bg-gray-100 p-2 rounded truncate">{match.team1}</div>
-                    <div className="text-sm font-mono text-gray-500">VS</div>
-                    <div className="font-bold text-gray-800 text-center w-1/3 bg-gray-100 p-2 rounded truncate">{match.team2}</div>
+        const MatchCard = ({ match, isFinal = false }) => {
+    const hasResult = 
+        typeof match.score1 === "number" && 
+        typeof match.score2 === "number";
+
+    return (
+        <div className={`relative flex flex-col items-center justify-center p-4 bg-white border rounded-lg shadow-sm transition-shadow hover:shadow-md ${isFinal ? 'border-yellow-400 bg-yellow-50' : 'border-gray-200'}`}>
+            <div className="text-xs font-bold text-gray-400 mb-2">
+                {match.title || "المباراة"}
+            </div>
+
+            <div className="flex items-center justify-between w-full gap-4">
+                <div className="font-bold text-gray-800 text-center w-1/3 bg-gray-100 p-2 rounded truncate">
+                    {match.team1}
                 </div>
-                <div className="mt-3 flex items-center justify-center w-full">
-                    <div className="flex items-center text-xs text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
-                        <Clock size={12} className="ml-1" />
-                        {match.time}
-                    </div>
+
+                <div className="flex flex-col items-center justify-center">
+                    <div className="text-sm font-mono text-gray-500">VS</div>
+
+                    {hasResult && (
+                        <div className="mt-1 text-xs font-bold bg-green-50 text-green-700 px-3 py-1 rounded-full">
+                            {match.score1} - {match.score2}
+                        </div>
+                    )}
+                </div>
+
+                <div className="font-bold text-gray-800 text-center w-1/3 bg-gray-100 p-2 rounded truncate">
+                    {match.team2}
                 </div>
             </div>
-        );
+
+            <div className="mt-3 flex items-center justify-center w-full">
+                <div className="flex items-center text-xs text-blue-600 bg-blue-50 px-3 py-1 rounded-full">
+                    <Clock size={12} className="ml-1" />
+                    {match.time}
+                </div>
+            </div>
+        </div>
+    );
+};
+
 
         const BracketNode = ({ label, subLabel, isFinal }) => (
             <div className={`relative flex flex-col justify-center items-center w-32 md:w-40 p-2 text-center border rounded shadow-sm bg-white z-10 ${isFinal ? 'border-yellow-500 ring-2 ring-yellow-200' : 'border-gray-300'}`}>
@@ -2017,6 +2042,7 @@ const jeddahData = {
     </script>
 </body>
 </html>
+
 
 
 
