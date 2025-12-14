@@ -2022,6 +2022,7 @@ const jeddahData = {
                             <TabButton id="jeddah-schedule" label="جدول جدة" icon={MapPin} activeTab={activeTab} setActiveTab={setActiveTab} />
                             <TabButton id="riyadh-bracket" label="شجرة الرياض" icon={Shield} activeTab={activeTab} setActiveTab={setActiveTab} />
                             <TabButton id="riyadh-schedule" label="جدول الرياض" icon={Calendar} activeTab={activeTab} setActiveTab={setActiveTab} />
+                            <TabButton id="rules" label="نظام البطولة" icon={Shield} activeTab={activeTab} setActiveTab={setActiveTab} />
                         </div>
                     </div>
 
@@ -2147,7 +2148,7 @@ const jeddahData = {
                                         </div>
                                     </div>
                                     <a 
-                                        href="https://maps.app.goo.gl/ecqLTe7nvDhzFDcQ8?g_st=iw" 
+                                        href="https://maps.app.goo.gl/wJ3YAcEqrV3xnAWJ7" 
                                         target="_blank" 
                                         rel="noopener noreferrer"
                                         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-bold transition-colors flex items-center gap-2"
@@ -2188,6 +2189,55 @@ const jeddahData = {
                                     </div>
                                 ))}
                             </div>
+                        {activeTab === 'rules' && (
+                            <div className="max-w-3xl mx-auto space-y-6">
+                                <div className="bg-white rounded-xl shadow border p-6">
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <div className="bg-blue-600 text-white p-2 rounded-full">
+                                            <Shield size={24} />
+                                        </div>
+                                        <div>
+                                            <h2 className="text-2xl font-bold text-gray-800">نظام بطولة الموظفين</h2>
+                                            <p className="text-sm text-gray-500">القواعد الأساسية للبطولة</p>
+                                        </div>
+                                    </div>
+                        
+                                    <div className="space-y-4 text-sm leading-relaxed text-gray-800">
+                                        <div className="border-b pb-3">
+                                            <h3 className="font-bold text-blue-800 mb-1">مدة المباراة</h3>
+                                            <p>زمن المباراة ٤٠ دقيقة، مقسّمة على شوطين، كل شوط ٢٠ دقيقة، مع راحة بين الشوطين مدتها ١٠ دقائق.</p>
+                                        </div>
+                        
+                                        <div className="border-b pb-3">
+                                            <h3 className="font-bold text-blue-800 mb-1">عدد اللاعبين</h3>
+                                            <p>اللعب بنظام <span className="font-semibold">٨ ضد ٨</span> داخل الملعب.</p>
+                                        </div>
+                        
+                                        <div className="border-b pb-3">
+                                            <h3 className="font-bold text-blue-800 mb-1">التبديلات</h3>
+                                            <p>التبديلات <span className="font-semibold">مفتوحة</span> طوال المباراة، وفق توجيهات الحكم ومنظم البطولة.</p>
+                                        </div>
+                        
+                                        <div className="border-b pb-3">
+                                            <h3 className="font-bold text-blue-800 mb-1">الزي الرياضي</h3>
+                                            <p>
+                                                يجب الالتزام بالزي الرياضي المناسب، بما في ذلك 
+                                                <span className="font-semibold"> حذاء كرة القدم</span> المخصص للعب على العشب الصناعي/الملعب المعتمد.
+                                            </p>
+                                        </div>
+                        
+                                        <div className="border-b pb-3">
+                                            <h3 className="font-bold text-blue-800 mb-1">صديريات البطولة</h3>
+                                            <p>ستتم توزيع صديريات خاصة بشعار <span className="font-semibold">التعاونية</span> على الفرق قبل بداية المباراة، ويلتزم اللاعبون بارتدائها أثناء اللعب.</p>
+                                        </div>
+                        
+                                        <div>
+                                            <h3 className="font-bold text-blue-800 mb-1">نظام البطولة</h3>
+                                            <p>البطولة تُقام بنظام <span className="font-semibold">خروج المغلوب</span>، بحيث يتأهل الفائز من كل مباراة إلى الدور التالي حتى النهائي.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         )}
                     </main>
                 </div>
@@ -2199,6 +2249,7 @@ const jeddahData = {
     </script>
 </body>
 </html>
+
 
 
 
