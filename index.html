@@ -1993,6 +1993,26 @@ const jeddahData = {
         ]
     }
 ];
+            const MatchCell = ({ match }) => {
+  if (!match) return <span className="text-gray-400">—</span>;
+
+  return (
+    <div className="leading-tight">
+      <div className="font-bold text-gray-800">{match.label}</div>
+      {match.score && (
+        <div className="mt-1 text-xs font-bold text-green-700 bg-green-50 inline-block px-2 py-0.5 rounded-full">
+          {match.score}
+        </div>
+      )}
+      {match.note && (
+        <div className="mt-1 text-[11px] text-gray-500">
+          {match.note}
+        </div>
+      )}
+    </div>
+  );
+};
+
 
             return (
                 <div className="min-h-screen bg-gray-50 font-sans pb-12" dir="rtl">
@@ -2205,11 +2225,21 @@ const jeddahData = {
                         <tbody className="divide-y">
                             {day.matches.map((m, i) => (
                                 <tr key={i} className="hover:bg-gray-50">
-                                    <td className="p-3 font-mono">{m.time}</td>
-                                    <td className="p-3 font-bold">{m.pitchA || "—"}</td>
-                                    <td className="p-3 font-bold">{m.pitchB || "—"}</td>
-                                    <td className="p-3 font-bold">{m.pitchC || "—"}</td>
-                                    <td className="p-3 font-bold">{m.pitchD || "—"}</td>
+                                    <td className="p-3 align-top">
+                                      <MatchCell match={m.pitchA} />
+                                    </td>
+                                    <td className="p-3 align-top">
+                                      <MatchCell match={m.pitchB} />
+                                    </td>
+                                    <td className="p-3 align-top">
+                                      <MatchCell match={m.pitchC} />
+                                    </td>
+                                    <td className="p-3 align-top">
+                                      <MatchCell match={m.pitchD} />
+                                    </td>
+                                    <td className="p-3 font-mono align-top" dir="ltr">
+                                      {m.time}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -2287,6 +2317,7 @@ const jeddahData = {
     </script>
 </body>
 </html>
+
 
 
 
